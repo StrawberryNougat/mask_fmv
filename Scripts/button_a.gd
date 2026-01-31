@@ -5,7 +5,6 @@ extends Button
 # var a = 2
 # var b = "text"
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_visible(false); # Replace with function body.
@@ -18,6 +17,7 @@ func _ready():
 
 func _on_VideoPlayer_finished():
 	set_visible(true); # Replace with function body.
+	set_text(Global.A_Video.buttonMessage);
 
 
 func _on_ButtonA_pressed():
