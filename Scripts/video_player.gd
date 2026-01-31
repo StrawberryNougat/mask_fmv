@@ -31,6 +31,7 @@ func _on_ButtonA_pressed():
 	if (!is_playing()):
 		stream = load(A_video); # Replace with function body.
 		current_video = get_stream();
+		bad_end = Global.A_Video.badEnd;
 		play();
 
 
@@ -38,7 +39,7 @@ func _on_ButtonB_pressed():
 	if (!is_playing()):
 		stream = load(B_video); # Replace with function body.
 		current_video = get_stream();
-		bad_end = true;
+		bad_end = Global.B_Video.badEnd;
 		play(); # Replace with function body.
 		
 
