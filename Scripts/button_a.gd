@@ -18,3 +18,11 @@ func _ready():
 
 func _on_VideoPlayer_finished():
 	set_visible(true); # Replace with function body.
+
+
+func _on_ButtonA_pressed():
+	set_visible(false); # Replace with function body.
+
+
+func _on_ButtonB_pressed():
+	set_visible(false); # Replace with function body.
