@@ -45,3 +45,4 @@ script = ExtResource( 3 )
 
 [connection signal="finished" from="Control/AspectRatioContainer/VideoPlayer" to="Control/ButtonA" method="_on_VideoPlayer_finished"]
 [connection signal="finished" from="Control/AspectRatioContainer/VideoPlayer" to="Control/ButtonB" method="_on_VideoPlayer_finished"]
+[connection signal="pressed" from="Control/ButtonA" to="Control/AspectRatioContainer/VideoPlayer" method="_on_ButtonA_pressed"]
