@@ -3,6 +3,7 @@ extends VideoPlayer
 var current_video;
 var A_video;
 var B_video;
+var opening = "res://Videos/opening.webm"
 var bad_end;
 # Declare member variables here. Examples:
 # var a = 2
@@ -13,7 +14,8 @@ var bad_end;
 func _ready() -> void:
 	bad_end = false;
 	current_video = get_stream();
-	A_video = "res://Videos/test1.webm";
+	A_video = Global.A_Video.url;
+	B_video = Global.B_Video.url;
 	play();
 
 
@@ -34,7 +36,7 @@ func _on_ButtonA_pressed():
 
 func _on_ButtonB_pressed():
 	if (!is_playing()):
-		stream = load(A_video); # Replace with function body.
+		stream = load(B_video); # Replace with function body.
 		current_video = get_stream();
 		bad_end = true;
 		play(); # Replace with function body.
