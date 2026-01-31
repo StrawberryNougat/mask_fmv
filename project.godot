@@ -11,7 +11,12 @@ config_version=4
 [application]
 
 config/name="Mask_FMV"
+run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Scripts/Global.gd"
 
 [display]
 
