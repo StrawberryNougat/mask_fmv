@@ -9,6 +9,7 @@ var bad_end;
 var option_chosen;
 var true_end;
 var length;
+signal pause;
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -37,7 +38,7 @@ func video_set_up() -> void:
 func _process(_delta):
 	if(length - get_stream_position() < .001):
 		stop();
-		emit_signal("finished"); # make buttons appear
+		emit_signal("pause"); # make buttons appear
 	
 
 func _on_ButtonA_pressed():
