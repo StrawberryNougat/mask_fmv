@@ -16,6 +16,14 @@ var videos = {
 
 		"B" : {url = "res://Videos/scenario_2_option_B.webm", buttonMessage = "Good morning to you too as well!", badEnd = false}
 	},
+	3 : {
+		"A" : {url = "res://Videos/scenario_3_option_A.webm", buttonMessage = "cookie", badEnd = false},
+		"B" : {url = "res://Videos/scenario_3_option_B.webm", buttonMessage = "password", badEnd = true}
+	},
+	4 : {
+		"A" : {url = "res://Videos/scenario_4_option_A.webm", buttonMessage = "I don't.", badEnd = false},
+		"B" : {url = "res://Videos/scenario_4_option_B.webm", buttonMessage = "The package?", badEnd = true}
+	},
 }
 
 func findVideo(scenarioNum: int, optionString: String) -> Dictionary:
