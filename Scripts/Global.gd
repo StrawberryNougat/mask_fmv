@@ -33,12 +33,12 @@ var videos = {
 		"B" : {url = "res://Videos/scenario_6_option_B.webm", buttonMessage = "Hmm okay", badEnd = true}
 	},
 	7 : {
-		"A" : {url = "res://Videos/scenario_7_option_A.webm", buttonMessage = "They’re usually quick…", badEnd = false},
+		"A" : {url = "res://Videos/scenario_7_option_A.webm", buttonMessage = "They are usually quick…", badEnd = false},
 		"B" : {url = "res://Videos/scenario_7_option_B.webm", buttonMessage = "Slow, as usual.", badEnd = true}
 	},
 	8 : {
 		# Finish good ending narration first
-		"A" : {url = "res://Videos/scenario_8_option_A.webm", buttonMessage = "*grab the chair*", badEnd = true},
+		"A" : {url = "res://Videos/scenario_8_option_A.webm", buttonMessage = "*grab the chair*", badEnd = false},
 		"B" : {url = "res://Videos/scenario_8_option_B.webm", buttonMessage = "*grab the Plushie*", badEnd = true}
 	}
 	
