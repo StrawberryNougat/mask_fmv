@@ -33,6 +33,7 @@ func video_set_up() -> void:
 
 func _on_ButtonA_pressed():
 	if (!is_playing()):
+
 		A_video = Global.findVideo(Global.scenario_num, "A");
 		if A_video.empty():
 			return;
