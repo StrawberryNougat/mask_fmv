@@ -14,7 +14,7 @@ var videos = {
 	2 : {
 		"A" : {url = "res://Videos/scenario_2_option_A.webm", buttonMessage = "*ignore him*", badEnd = true},
 
-		"B" : {url = "res://Videos/scenario_2_option_B.webm", buttonMessage = "Good morning to you too as well!", badEnd = false}
+		"B" : {url = "res://Videos/scenario_2_option_B.webm", buttonMessage = "Good morning!", badEnd = false}
 	},
 	3 : {
 		"A" : {url = "res://Videos/scenario_3_option_A.webm", buttonMessage = "cookie", badEnd = false},
@@ -38,7 +38,7 @@ var videos = {
 	},
 	8 : {
 		# Finish good ending narration first
-		# "A" : {url = "res://Videos/scenario_8_option_A.webm", buttonMessage = "*grab the chair*", badEnd = false},
+		"A" : {url = "res://Videos/scenario_8_option_A.webm", buttonMessage = "*grab the chair*", badEnd = true},
 		"B" : {url = "res://Videos/scenario_8_option_B.webm", buttonMessage = "*grab the Plushie*", badEnd = true}
 	}
 	
