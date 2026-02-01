@@ -35,20 +35,22 @@ func video_set_up() -> void:
 #	pass
 
 
-func _process(_delta):
-	if(length - get_stream_position() < .001):
-		stop();
+func _process(delta):
+	if(length - get_stream_position() <= delta):
+		self.paused = true;
 		emit_signal("pause"); # make buttons appear
 	
 
 func _on_ButtonA_pressed():
-	if (!is_playing()):
+	#if (!is_playing()):
 		A_video = Global.findVideo(Global.scenario_num, "A");
 		if A_video.empty():
 			return;
 		stream = load(A_video.url); # Replace with function body.
 		current_video = get_stream();
 		length = Global.videos[Global.scenario_num]["A"].length;
+		self.paused = false;
+		#self.stream_position = 0.0;
 		play();
 		bad_end = A_video.badEnd;
 		if(Global.scenario_num == 8):
@@ -60,7 +62,7 @@ func _on_ButtonA_pressed():
 
 
 func _on_ButtonB_pressed():
-	if (!is_playing()):
+	#if (!is_playing()):
 		B_video = Global.findVideo(Global.scenario_num, "B");
 		if B_video.empty():
 			return;
@@ -68,6 +70,8 @@ func _on_ButtonB_pressed():
 		current_video = get_stream();
 		bad_end = B_video.badEnd; # Replace with function body.
 		length = Global.videos[Global.scenario_num]["B"].length;
+		self.paused = false;
+		#self.stream_position = 0.0;
 		play(); # Replace with function body.
 		#length = get_stream_length();
 		if(Global.scenario_num < 8 && !bad_end):
@@ -75,8 +79,13 @@ func _on_ButtonB_pressed():
 			
 
 
-func _on_VideoPlayer_finished():
+#func _on_VideoPlayer_finished():
 	#if(bad_end && Global.scenario_num < 8):
 	#	get_tree().change_scene("res://MainMenu.tscn"); # Replace with function body.
+#	if(true_end):
+#		get_tree().change_scene("res://CreditsPage.tscn");
+
+
+func _on_VideoPlayer_pause():
 	if(true_end):
-		get_tree().change_scene("res://CreditsPage.tscn");
+		get_tree().change_scene("res://CreditsPage.tscn"); # Replace with function body.

@@ -16,9 +16,9 @@ func _ready():
 #	pass
 
 
-func _on_VideoPlayer_finished():
-	set_text(Global.videos[Global.scenario_num]["B"].buttonMessage);
-	set_visible(true); # Replace with function body.
+#func _on_VideoPlayer_finished():
+#	set_text(Global.videos[Global.scenario_num]["B"].buttonMessage);
+#	set_visible(true); # Replace with function body.
 
 
 func _on_ButtonA_pressed():
