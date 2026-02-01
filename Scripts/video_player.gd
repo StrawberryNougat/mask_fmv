@@ -8,6 +8,7 @@ var bad_end;
 #var scenario_num;
 var option_chosen;
 var true_end;
+var length;
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -20,6 +21,7 @@ func _ready() -> void:
 	A_video = Global.videos[1]["A"];
 	B_video = Global.videos[1]["B"];
 	true_end = false;
+	length = 32;
 	Global.scenario_num = 1;
 	option_chosen = 0;
 	play();
@@ -32,6 +34,11 @@ func video_set_up() -> void:
 #	pass
 
 
+func _process(_delta):
+	if(length - get_stream_position() < .001):
+		stop();
+		emit_signal("finished"); # make buttons appear
+	
 
 func _on_ButtonA_pressed():
 	if (!is_playing()):
@@ -40,12 +47,14 @@ func _on_ButtonA_pressed():
 			return;
 		stream = load(A_video.url); # Replace with function body.
 		current_video = get_stream();
+		length = Global.videos[Global.scenario_num]["A"].length;
 		play();
 		bad_end = A_video.badEnd;
 		if(Global.scenario_num == 8):
 			true_end = true;
 		if(Global.scenario_num < 8 && !bad_end):
 			Global.scenario_num += 1;
+			
 		
 
 
@@ -57,9 +66,12 @@ func _on_ButtonB_pressed():
 		stream = load(B_video.url);
 		current_video = get_stream();
 		bad_end = B_video.badEnd; # Replace with function body.
+		length = Global.videos[Global.scenario_num]["B"].length;
 		play(); # Replace with function body.
+		#length = get_stream_length();
 		if(Global.scenario_num < 8 && !bad_end):
 			Global.scenario_num += 1;
+			
 
 
 func _on_VideoPlayer_finished():
