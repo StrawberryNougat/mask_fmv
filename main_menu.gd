@@ -18,3 +18,7 @@ func _ready():
 
 func _on_Start_pressed():
 	get_tree().change_scene("res://MainGame.tscn"); # Replace with function body.
+
+
+func _on_Credits_pressed():
+	get_tree().change_scene("res://CreditsPage.tscn"); # Replace with function body.

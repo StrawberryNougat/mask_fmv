@@ -42,7 +42,8 @@ func _on_ButtonA_pressed():
 		current_video = get_stream();
 		play();
 		bad_end = A_video.badEnd;
-		Global.scenario_num += 1;
+		if(Global.scenario_num < 8):
+			Global.scenario_num += 1;
 
 
 func _on_ButtonB_pressed():
@@ -54,7 +55,8 @@ func _on_ButtonB_pressed():
 		current_video = get_stream();
 		bad_end = B_video.badEnd; # Replace with function body.
 		play(); # Replace with function body.
-		Global.scenario_num += 1;
+		if(Global.scenario_num < 8):
+			Global.scenario_num += 1;
 
 
 func _on_VideoPlayer_finished():
