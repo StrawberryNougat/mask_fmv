@@ -13,6 +13,7 @@ var videos = {
 	},
 	2 : {
 		"A" : {url = "res://Videos/scenario_2_option_A.webm", buttonMessage = "*ignore him*", badEnd = true},
+
 		"B" : {url = "res://Videos/scenario_2_option_B.webm", buttonMessage = "Good morning to you too as well!", badEnd = false}
 	},
 	3 : {

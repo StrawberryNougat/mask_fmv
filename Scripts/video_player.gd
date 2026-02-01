@@ -18,6 +18,7 @@ func _ready() -> void:
 	current_video = get_stream();
 	A_video = Global.videos[1]["A"];
 	B_video = Global.videos[1]["B"];
+
 	Global.scenario_num = 1;
 	option_chosen = 0;
 	play();
