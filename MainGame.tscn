@@ -41,6 +41,9 @@ margin_top = -76.0
 margin_right = -10.0
 script = ExtResource( 3 )
 
+[connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="AspectRatioContainer/VideoPlayer" method="_on_VideoPlayer_finished"]
+[connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="ButtonA" method="_on_VideoPlayer_finished"]
+[connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="ButtonB" method="_on_VideoPlayer_finished"]
 [connection signal="pause" from="AspectRatioContainer/VideoPlayer" to="AspectRatioContainer/VideoPlayer" method="_on_VideoPlayer_pause"]
 [connection signal="pause" from="AspectRatioContainer/VideoPlayer" to="ButtonA" method="_on_VideoPlayer_pause"]
 [connection signal="pause" from="AspectRatioContainer/VideoPlayer" to="ButtonB" method="_on_VideoPlayer_pause"]
