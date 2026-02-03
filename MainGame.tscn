@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/video_player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/button_a.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/button_b.gd" type="Script" id=3]
-[ext_resource path="res://Videos/opening.webm" type="VideoStream" id=4]
+[ext_resource path="res://Videos/opening_captions.webm" type="VideoStream" id=4]
+[ext_resource path="res://Fonts/blomberg-font/Blomberg-8MKKZ.otf" type="DynamicFontData" id=5]
+[ext_resource path="res://try_again.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 184
+outline_size = 12
+outline_color = Color( 0.211765, 0, 0.345098, 1 )
+font_data = ExtResource( 5 )
 
 [node name="MainGame" type="Control"]
 anchor_right = 1.0
@@ -41,12 +49,30 @@ margin_top = -76.0
 margin_right = -10.0
 script = ExtResource( 3 )
 
+[node name="TryAgain" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -492.0
+margin_top = -85.5
+margin_right = 492.0
+margin_bottom = 85.5
+custom_colors/font_color = Color( 0.843137, 0.886275, 0.992157, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Try again..."
+align = 1
+script = ExtResource( 6 )
+
+[connection signal="bad_end" from="AspectRatioContainer/VideoPlayer" to="TryAgain" method="_on_VideoPlayer_bad_end"]
 [connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="AspectRatioContainer/VideoPlayer" method="_on_VideoPlayer_finished"]
 [connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="ButtonA" method="_on_VideoPlayer_finished"]
 [connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="ButtonB" method="_on_VideoPlayer_finished"]
 [connection signal="pressed" from="ButtonA" to="AspectRatioContainer/VideoPlayer" method="_on_ButtonA_pressed"]
 [connection signal="pressed" from="ButtonA" to="ButtonA" method="_on_ButtonA_pressed"]
 [connection signal="pressed" from="ButtonA" to="ButtonB" method="_on_ButtonA_pressed"]
+[connection signal="pressed" from="ButtonA" to="TryAgain" method="_on_ButtonA_pressed"]
 [connection signal="pressed" from="ButtonB" to="AspectRatioContainer/VideoPlayer" method="_on_ButtonB_pressed"]
 [connection signal="pressed" from="ButtonB" to="ButtonA" method="_on_ButtonB_pressed"]
 [connection signal="pressed" from="ButtonB" to="ButtonB" method="_on_ButtonB_pressed"]
+[connection signal="pressed" from="ButtonB" to="TryAgain" method="_on_ButtonB_pressed"]

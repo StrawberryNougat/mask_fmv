@@ -28,9 +28,9 @@ window/stretch/aspect="expand"
 
 [global]
 
-continu=false
-feedback=false
 feed=false
+feedback=false
+continu=false
 
 [gui]
 

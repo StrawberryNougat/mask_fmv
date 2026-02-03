@@ -3,11 +3,12 @@ extends VideoPlayer
 var current_video;
 var A_video;
 var B_video;
-var opening = "res://Videos/opening.webm"
+var opening = "res://Videos/opening_captions.webm"
 var bad_end;
 #var scenario_num;
 var option_chosen;
 var true_end;
+signal bad_end;
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -63,7 +64,7 @@ func _on_ButtonB_pressed():
 
 
 func _on_VideoPlayer_finished():
-	#if(bad_end && Global.scenario_num < 8):
-	#	get_tree().change_scene("res://MainMenu.tscn"); # Replace with function body.
-	if(true_end):
+	if(bad_end):
+		emit_signal("bad_end"); # Replace with function body.
+	elif(true_end):
 		get_tree().change_scene("res://CreditsPage.tscn");
