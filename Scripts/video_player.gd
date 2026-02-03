@@ -9,6 +9,7 @@ var bad_end;
 var option_chosen;
 var true_end;
 signal bad_end;
+#var length;
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -23,6 +24,7 @@ func _ready() -> void:
 	true_end = false;
 	Global.scenario_num = 1;
 	option_chosen = 0;
+	#length = 32;
 	play();
 
 
@@ -68,3 +70,15 @@ func _on_VideoPlayer_finished():
 		emit_signal("bad_end"); # Replace with function body.
 	elif(true_end):
 		get_tree().change_scene("res://CreditsPage.tscn");
+		
+func _input(event):
+	if (event.is_action_pressed("ui_right")):
+		#fast forward
+		#self.stream_position = length - 1;
+		stop();
+		emit_signal("finished");
+	if (event.is_action_pressed("ui_left")):
+		self.stream_position = 0.0;
+		emit_signal("button_A_up");
+		emit_signal("button_B_up")
+		play();
