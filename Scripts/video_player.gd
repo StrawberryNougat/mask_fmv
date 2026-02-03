@@ -9,6 +9,7 @@ var bad_end;
 var option_chosen;
 var true_end;
 signal bad_end;
+signal hide_buttons;
 #var length;
 # Declare member variables here. Examples:
 # var a = 2
@@ -79,6 +80,5 @@ func _input(event):
 		emit_signal("finished");
 	if (event.is_action_pressed("ui_left")):
 		self.stream_position = 0.0;
-		emit_signal("button_A_up");
-		emit_signal("button_B_up")
+		emit_signal("hide_buttons");
 		play();

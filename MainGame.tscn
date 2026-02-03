@@ -68,6 +68,8 @@ script = ExtResource( 6 )
 [connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="AspectRatioContainer/VideoPlayer" method="_on_VideoPlayer_finished"]
 [connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="ButtonA" method="_on_VideoPlayer_finished"]
 [connection signal="finished" from="AspectRatioContainer/VideoPlayer" to="ButtonB" method="_on_VideoPlayer_finished"]
+[connection signal="hide_buttons" from="AspectRatioContainer/VideoPlayer" to="ButtonA" method="_on_VideoPlayer_hide_buttons"]
+[connection signal="hide_buttons" from="AspectRatioContainer/VideoPlayer" to="ButtonB" method="_on_VideoPlayer_hide_buttons"]
 [connection signal="pressed" from="ButtonA" to="AspectRatioContainer/VideoPlayer" method="_on_ButtonA_pressed"]
 [connection signal="pressed" from="ButtonA" to="ButtonA" method="_on_ButtonA_pressed"]
 [connection signal="pressed" from="ButtonA" to="ButtonB" method="_on_ButtonA_pressed"]

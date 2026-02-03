@@ -27,3 +27,7 @@ func _on_ButtonA_pressed():
 
 func _on_ButtonB_pressed():
 	set_visible(false); # Replace with function body.
+
+
+func _on_VideoPlayer_hide_buttons():
+	set_visible(false); # Replace with function body.
