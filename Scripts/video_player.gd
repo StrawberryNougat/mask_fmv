@@ -7,6 +7,9 @@ var opening = "res://Videos/opening.webm"
 var bad_end;
 #var scenario_num;
 var option_chosen;
+var true_end;
+var length;
+signal pause;
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -18,7 +21,8 @@ func _ready() -> void:
 	current_video = get_stream();
 	A_video = Global.videos[1]["A"];
 	B_video = Global.videos[1]["B"];
-
+	true_end = false;
+	length = 32;
 	Global.scenario_num = 1;
 	option_chosen = 0;
 	play();
@@ -31,32 +35,57 @@ func video_set_up() -> void:
 #	pass
 
 
+func _process(delta):
+	if(length - get_stream_position() <= delta):
+		self.paused = true;
+		emit_signal("pause"); # make buttons appear
+	
 
 func _on_ButtonA_pressed():
-	if (!is_playing()):
-
+	#if (!is_playing()):
 		A_video = Global.findVideo(Global.scenario_num, "A");
 		if A_video.empty():
 			return;
 		stream = load(A_video.url); # Replace with function body.
 		current_video = get_stream();
+		length = Global.videos[Global.scenario_num]["A"].length;
+		self.paused = false;
+		#self.stream_position = 0.0;
 		play();
 		bad_end = A_video.badEnd;
-		Global.scenario_num += 1;
+		if(Global.scenario_num == 8):
+			true_end = true;
+		if(Global.scenario_num < 8 && !bad_end):
+			Global.scenario_num += 1;
+			
+		
 
 
 func _on_ButtonB_pressed():
-	if (!is_playing()):
+	#if (!is_playing()):
 		B_video = Global.findVideo(Global.scenario_num, "B");
 		if B_video.empty():
 			return;
 		stream = load(B_video.url);
 		current_video = get_stream();
 		bad_end = B_video.badEnd; # Replace with function body.
+		length = Global.videos[Global.scenario_num]["B"].length;
+		self.paused = false;
+		#self.stream_position = 0.0;
 		play(); # Replace with function body.
-		Global.scenario_num += 1;
+		#length = get_stream_length();
+		if(Global.scenario_num < 8 && !bad_end):
+			Global.scenario_num += 1;
+			
 
 
-func _on_VideoPlayer_finished():
-	if(bad_end):
-		get_tree().change_scene("res://MainMenu.tscn"); # Replace with function body.
+#func _on_VideoPlayer_finished():
+	#if(bad_end && Global.scenario_num < 8):
+	#	get_tree().change_scene("res://MainMenu.tscn"); # Replace with function body.
+#	if(true_end):
+#		get_tree().change_scene("res://CreditsPage.tscn");
+
+
+func _on_VideoPlayer_pause():
+	if(true_end):
+		get_tree().change_scene("res://CreditsPage.tscn"); # Replace with function body.
